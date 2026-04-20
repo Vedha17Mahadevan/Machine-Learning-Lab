@@ -1,0 +1,318 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "f5b25579",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Hello world!\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"Hello world!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "0eb5a1ad",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "3e4acc67",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Original array:  [0 1 2 3 4 5 6 7 8 9]\n",
+      "First 3 elements of the array:  [0 1 2]\n",
+      "Last 3 elements of the array:  [7 8 9]\n",
+      "Elements between 2 to 6:  [2 3 4 5]\n"
+     ]
+    }
+   ],
+   "source": [
+    "# 1.1 a\n",
+    "\n",
+    "arr_1D = np.arange(10)\n",
+    "print(\"Original array: \", arr_1D)\n",
+    "print(\"First 3 elements of the array: \", arr_1D[:3])\n",
+    "print(\"Last 3 elements of the array: \", arr_1D[-3:])\n",
+    "print(\"Elements between 2 to 6: \", arr_1D[2:6])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "a8f73c64",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Matrix:  \n",
+      " [[0 1 2]\n",
+      " [3 4 5]\n",
+      " [6 7 8]]\n",
+      "Element at 2nd row 3rd colum n:  5\n",
+      "Element at first 2 rows and first 2 columns:  \n",
+      " [[0 1]\n",
+      " [3 4]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#1.1 b\n",
+    "\n",
+    "mat_3x3 = np.arange(9).reshape(3,3)\n",
+    "print(\"Matrix: \",\"\\n\", mat_3x3)\n",
+    "print(\"Element at 2nd row 3rd colum n: \", mat_3x3[1,2])\n",
+    "print(\"Element at first 2 rows and first 2 columns: \",\"\\n\", mat_3x3[:2, :2])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "9ac402c2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Identity Matrix:  \n",
+      " [[1. 0. 0.]\n",
+      " [0. 1. 0.]\n",
+      " [0. 0. 1.]]\n",
+      "Flattened Identity Matrix:  [1. 0. 0. 0. 1. 0. 0. 0. 1.]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#1.1 c\n",
+    "\n",
+    "id_matr = np.eye(3)\n",
+    "id_flat = id_matr.flatten()\n",
+    "print(\"Identity Matrix: \", \"\\n\", id_matr)\n",
+    "print(\"Flattened Identity Matrix: \", id_flat)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "id": "8e9cf3c4",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Array:  [ 1  2  3  4  5  6  7  8  9 10]\n",
+      "Replacing all odd numbers with -1:  [-1  2 -1  4 -1  6 -1  8 -1 10]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#1.1 d\n",
+    "\n",
+    "int_arr = np.arange(1,11)\n",
+    "print(\"Array: \", int_arr)\n",
+    "int_arr[int_arr%2 != 0] = -1\n",
+    "print(\"Replacing all odd numbers with -1: \", int_arr)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "id": "7137f8a8",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Mean:  0.5541846681017788\n",
+      "Median:  0.7072926781557456\n",
+      "Standard Deviation:  0.3304244046209556\n",
+      "Variance:  0.10918028716911302\n"
+     ]
+    }
+   ],
+   "source": [
+    "#1.1 e\n",
+    "\n",
+    "rand_arr = np.random.rand(10)\n",
+    "print(\"Mean: \", np.mean(rand_arr))\n",
+    "print(\"Median: \", np.median(rand_arr))\n",
+    "print(\"Standard Deviation: \", np.std(rand_arr))\n",
+    "print(\"Variance: \", np.var(rand_arr))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "864a512c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 1.1: To implement a menu driven program using Numpy - Exercise 1\n",
+    "\n",
+    "print(\"Welcome to Menu Driven Program for Familiarization with Numpy- Exercise I\")\n",
+    "print(\"\\nMenu: \")\n",
+    "print(\"1. Create a 1D array of numbers from 0-9 and display the first 3 elements, last 3 elements and elements from index 2 to 5.\")\n",
+    "print(\"2. Create a 3x3 matrix with values 0-8 and display the element at index [1,2] and elements in first 2 rows and columns.\")\n",
+    "print(\"3. Create a 3x3 identity matrix and flatten the 2D array back to 1D array.\")\n",
+    "print(\"4. Create a 1D array of integers from 1 top 10. Replace all odd nuumbers with -1.\")\n",
+    "print(\"5. Given an array of random numbers, compute mean, median, standard deviation and variance.\")\n",
+    "print(\"6. Exit\")\n",
+    "\n",
+    "choice = int(input(\"Enter your choice (1/2/3/4/5/6): \"))\n",
+    "\n",
+    "while(1):\n",
+    "    if(choice==1):\n",
+    "        arr_1D = np.arange(10)\n",
+    "        print(\"Original array: \", arr_1D)\n",
+    "        print(\"First 3 elements of the array: \", arr_1D[:3])\n",
+    "        print(\"Last 3 elements of the array: \", arr_1D[-3:])\n",
+    "        print(\"Elements between 2 to 6: \", arr_1D[2:6])\n",
+    "        \n",
+    "    elif(choice==2):\n",
+    "        mat_3x3 = np.arange(9).reshape(3,3)\n",
+    "        print(\"Matrix: \",\"\\n\", mat_3x3)\n",
+    "        print(\"Element at 2nd row 3rd colum n: \", mat_3x3[1,2])\n",
+    "        print(\"Element at first 2 rows and first 2 columns: \",\"\\n\", mat_3x3[:2, :2])\n",
+    "        \n",
+    "    elif(choice==3):\n",
+    "        id_matr = np.eye(3)\n",
+    "        id_flat = id_matr.flatten()\n",
+    "        print(\"Identity Matrix: \", \"\\n\", id_matr)\n",
+    "        print(\"Flattened Identity Matrix: \", id_flat)\n",
+    "        \n",
+    "    elif(choice==4):\n",
+    "        int_arr = np.arange(1,11)\n",
+    "        print(\"Array: \", int_arr)\n",
+    "        int_arr[int_arr%2 != 0] = -1\n",
+    "        print(\"Replacing all odd numbers with -1: \", int_arr)\n",
+    "        \n",
+    "    elif(choice==5):\n",
+    "        rand_arr = np.random.rand(10)\n",
+    "        print(\"Mean: \", np.mean(rand_arr))\n",
+    "        print(\"Median: \", np.median(rand_arr))\n",
+    "        print(\"Standard Deviation: \", np.std(rand_arr))\n",
+    "        print(\"Variance: \", np.var(rand_arr))\n",
+    "        \n",
+    "    elif(choice==6):\n",
+    "        print(\"Exiting Menu...\")\n",
+    "        exit(0);\n",
+    "    else:\n",
+    "        print(\"Invalid Choice, Please try again!\")\n",
+    "        \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "1002c129",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 1.1: To implement a menu driven program using Numpy - Exercise 1\n",
+    "\n",
+    "print(\"Welcome to Menu Driven Program for Familiarization with Numpy- Exercise I\")\n",
+    "print(\"\\nMenu: \")\n",
+    "print(\"1. Create a 1D array of numbers from 0-9 and display the first 3 elements, last 3 elements and elements from index 2 to 5.\")\n",
+    "print(\"2. Create a 3x3 matrix with values 0-8 and display the element at index [1,2] and elements in first 2 rows and columns.\")\n",
+    "print(\"3. Create a 3x3 identity matrix and flatten the 2D array back to 1D array.\")\n",
+    "print(\"4. Create a 1D array of integers from 1 top 10. Replace all odd nuumbers with -1.\")\n",
+    "print(\"5. Given an array of random numbers, compute mean, median, standard deviation and variance.\")\n",
+    "print(\"6. Exit\")\n",
+    "\n",
+    "choice = int(input(\"Enter your choice (1/2/3/4/5/6): \"))\n",
+    "\n",
+    "while(1):\n",
+    "    if(choice==1):\n",
+    "        arr_1D = np.arange(10)\n",
+    "        print(\"Original array: \", arr_1D)\n",
+    "        print(\"First 3 elements of the array: \", arr_1D[:3])\n",
+    "        print(\"Last 3 elements of the array: \", arr_1D[-3:])\n",
+    "        print(\"Elements between 2 to 6: \", arr_1D[2:6])\n",
+    "        break\n",
+    "    elif(choice==2):\n",
+    "        mat_3x3 = np.arange(9).reshape(3,3)\n",
+    "        print(\"Matrix: \",\"\\n\", mat_3x3)\n",
+    "        print(\"Element at 2nd row 3rd colum n: \", mat_3x3[1,2])\n",
+    "        print(\"Element at first 2 rows and first 2 columns: \",\"\\n\", mat_3x3[:2, :2])\n",
+    "        break\n",
+    "    elif(choice==3):\n",
+    "        id_matr = np.eye(3)\n",
+    "        id_flat = id_matr.flatten()\n",
+    "        print(\"Identity Matrix: \", \"\\n\", id_matr)\n",
+    "        print(\"Flattened Identity Matrix: \", id_flat)\n",
+    "        break\n",
+    "    elif(choice==4):\n",
+    "        int_arr = np.arange(1,11)\n",
+    "        print(\"Array: \", int_arr)\n",
+    "        int_arr[int_arr%2 != 0] = -1\n",
+    "        print(\"Replacing all odd numbers with -1: \", int_arr)\n",
+    "        break\n",
+    "    elif(choice==5):\n",
+    "        rand_arr = np.random.rand(10)\n",
+    "        print(\"Mean: \", np.mean(rand_arr))\n",
+    "        print(\"Median: \", np.median(rand_arr))\n",
+    "        print(\"Standard Deviation: \", np.std(rand_arr))\n",
+    "        print(\"Variance: \", np.var(rand_arr))\n",
+    "        break\n",
+    "    elif(choice==6):\n",
+    "        print(\"Exiting Menu...\")\n",
+    "        exit(0);\n",
+    "    else:\n",
+    "        print(\"Invalid Choice, Please try again!\")\n",
+    "        break\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "490cc4ce",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.12"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
